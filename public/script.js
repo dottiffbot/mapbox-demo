@@ -1,9 +1,10 @@
 // import mapboxgl from 'mapbox-gl';
 async function mapSetup(){
     const res = await fetch ("/getmapbox");
-    const token = res.body
-    console.log(token)
-mapboxgl.accessToken = token;
+    const data = await res.json()
+    // const token = data.token
+    // console.log(token)
+mapboxgl.accessToken = data.token;
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
